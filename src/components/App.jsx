@@ -12,14 +12,9 @@ export function App() {
 
   const [filter, setFilter] = useState('');
 
-  useEffect(
-    prevContacts => {
-      if (prevContacts !== contacts) {
-        localStorage.setItem('contacts', JSON.stringify(contacts));
-      }
-    },
-    [contacts]
-  );
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const formSubmitHandler = ({ name, number }) => {
     const isContactName = contacts.some(
